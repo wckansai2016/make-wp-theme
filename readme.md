@@ -375,6 +375,70 @@ article の中の投稿のタイトル名などを下記を参考に書き換え
 
 に書き換えます。これで月別アーカイブへのリストが出力されます。
 
+### ウィジェットエリアの作成
+
+カテゴリーやアーカイブリストはウィジェットエリアを設定して、ウィジェットで表示する事も可能です。
+
+#### ウィジェットエリアの設定
+
+まずは管理画面でウィジェットを登録出来るようにfunctions.phpに以下のコードを貼り付けます。
+
+~~~
+function lesson_widgets_init() {
+  register_sidebar( array(
+    'name' => 'Sidebar',
+    'id' => 'sidebar-widget-area',
+    'before_widget' => '<aside class="wck_sub_section wck_section %2$s" id="%1$s">',
+    'after_widget' => '</aside>',
+    'before_title' => '<h4 class="wck_sub_section_title">',
+    'after_title' => '</h4>',
+  ) );
+}
+add_action( 'widgets_init', 'lesson_widgets_init' );
+~~~
+
+上記コードの各パラメーターの意味は下記の通りです。
+
+<table>
+<tr><th>name</th><td>管理画面に表示されるウィジェットエリア名</td></tr>
+<tr><th>id</th><td>ウィジェットのid</td></tr>
+<tr><th>before_widget</th><td>ウィジェットの最初に出力されるHTML</td></tr>
+<tr><th>after_widget</th><td>ウィジェットの最後に出力されるHTML</td></tr>
+<tr><th>before_title</th><td>ウィジェットのタイトルの前に出力されるHTML</td></tr>
+<tr><th>after_title</th><td>ウィジェットのタイトルの後に出力されるHTML</td></tr> 
+</table>
+
+参考 :  [Codex(関数リファレンス/register sidebar)](https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/register_sidebar)
+
+これで「管理画面」→「外観」→「ウィジェット」を確認すると「Sidebar」というウィジェットエリアができている事が確認できます。  
+
+続いて、ウィジェットエリアにセットしたウィジェットが公開画面側で表示されるようにしましょう
+
+#### ウィジェットを表示する設定
+
+サイドバーの一番上に表示してみましょう。
+
+~~~
+<!-- [ #sub ] -->
+<div id="sub" class="col-md-4">
+~~~
+
+と記述されている部分を下記に貼り替えます。
+
+~~~
+<!-- [ #sub ] -->
+<div id="sub" class="col-md-4">
+
+<?php 
+// ウィジェットエリアid 'sidebar-widget-area' にウィジェットアイテムが何かセットされていた時
+if ( is_active_sidebar( 'sidebar-widget-area' ) ) 
+  // sidebar-widget-area に入っているウィジェットアイテムを表示する
+  dynamic_sidebar( 'sidebar-widget-area' );
+?>
+~~~
+
+これで「管理画面」→「外観」→「ウィジェット」やカスタマイザーからウィジェットをセットしてみてください。セットしたウィジェットが表示されるのが確認出来ると思います。
+
 ## グローバルメニューにカスタムメニューを設定する
 
 まず、カスタムメニューが利用出来るように functions.php に下記を貼り付けます。
