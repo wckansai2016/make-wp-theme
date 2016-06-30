@@ -102,17 +102,19 @@ WordPressでは例えば画像をポップアップ表示するプラグイン�
 
 現在、javascriptやcssファイルの読み込みが index.php に直接記載されていますが、WordPressでは先ほど記載した wp_head() や wp_footer() を経由して出力します。
 
-まず lesson ディレクトリの中に functions.php というファイル名でファイルを作成します。
+まず wck-lesson ディレクトリの中に functions.php というファイル名でファイルを作成します。
 
 ~~~
 <?php 
 function lesson_theme_scripts(){
-	// テーマディレクトリにある style.css を出力
-	wp_enqueue_style( 'lesson_theme_style', get_stylesheet_uri() );
 
-	// テーマ用のCSSを読み込む
-	wp_enqueue_style( 'lesson-css-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.6' );
-	wp_enqueue_style( 'lesson-css', get_template_directory_uri() . '/css/wck_style.css', array('lesson-css-bootstrap'), '1.0' );
+  // 静的HTMLで読み込んでいたCSSを読み込む
+  wp_enqueue_style( 'lesson_css_bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.6' );
+  wp_enqueue_style( 'lesson_css', get_template_directory_uri() . '/css/wck_style.css', array('lesson_css_bootstrap'), '1.0' );
+
+  // テーマディレクトリ直下にある style.css を出力
+  wp_enqueue_style( 'lesson_theme_style', get_stylesheet_uri(), array( 'lesson_css' ),'20160710' );
+
 }
 add_action( 'wp_enqueue_scripts', 'lesson_theme_scripts' );
 ~~~
@@ -129,6 +131,12 @@ add_action( 'wp_enqueue_scripts', 'lesson_theme_scripts' );
 
 #### 補足 : なぜ head に直書きでなく enqueue を使うのか？
 
+##### 非推奨の記述例
+
+~~~
+<link rel='stylesheet' href='<?php echo get_template_directory_uri();?>/css/style.css' type='text/css' media='all' />
+~~~
+
 ##### 正しい順番で読み込む
 
 いろいろなjsやcssファイルを読み込む時、正しい順番で読み込まないと正常に動作しない事があります。  
@@ -141,6 +149,9 @@ add_action( 'wp_enqueue_scripts', 'lesson_theme_scripts' );
 ##### プラグインなど外部から操作出来るようになる
 
 テーマで読み込まれているjsファイルやcssファイルを外部のプラグインなどから解除したい時に wp_deregister_script() や wp_deregister_style() を使えば、テーマを改変する事なく読み込みを解除する事ができるようになります。
+
+参考 : [関数リファレンス/wp enqueue style](https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/wp_enqueue_style)
+
 
 ### jsファイルの出力
 
@@ -157,15 +168,17 @@ wp_enqueue_script( 'lesson-js-bootstrap', get_template_directory_uri() . '/js/bo
 ~~~
 <?php 
 function lesson_theme_scripts(){
-	// テーマディレクトリにある style.css を出力
-	wp_enqueue_style( 'lesson_theme_style', get_stylesheet_uri() );
 
-	// テーマ用のCSSを読み込む
-	wp_enqueue_style( 'lesson-css-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.6' );
-	wp_enqueue_style( 'lesson-css', get_template_directory_uri() . '/css/wck_style.css', array('lesson-css-bootstrap'), '1.0' );
+  // 静的HTMLで読み込んでいたCSSを読み込む
+  wp_enqueue_style( 'lesson_css_bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.6' );
+  wp_enqueue_style( 'lesson_css', get_template_directory_uri() . '/css/wck_style.css', array('lesson_css_bootstrap'), '1.0' );
 
-	// テーマ用のjsを読み込む
-	wp_enqueue_script( 'lesson-js-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '20160710', true );
+  // テーマディレクトリ直下にある style.css を出力
+  wp_enqueue_style( 'lesson_theme_style', get_stylesheet_uri(), array( 'lesson_css' ),'20160710' );
+
+  // テーマ用のjsを読み込む
+  wp_enqueue_script( 'lesson-js-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '20160710', true );
+
 }
 add_action( 'wp_enqueue_scripts', 'lesson_theme_scripts' );
 ~~~
