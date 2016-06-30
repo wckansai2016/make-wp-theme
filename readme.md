@@ -110,7 +110,7 @@ function lesson_theme_scripts(){
 
   // 静的HTMLで読み込んでいたCSSを読み込む
   wp_enqueue_style( 'lesson_css_bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.6' );
-  wp_enqueue_style( 'lesson_css', get_template_directory_uri() . '/css/wck_style.css', array('lesson_css_bootstrap'), '1.0' );
+  wp_enqueue_style( 'lesson_css', get_template_directory_uri() . '/css/lesson_style.css', array('lesson_css_bootstrap'), '1.0' );
 
   // テーマディレクトリ直下にある style.css を出力
   wp_enqueue_style( 'lesson_theme_style', get_stylesheet_uri(), array( 'lesson_css' ),'20160710' );
@@ -121,23 +121,34 @@ add_action( 'wp_enqueue_scripts', 'lesson_theme_scripts' );
 
 これでサイトを見てみましょう。CSSが適用されているのが確認出来るはずです。
 
-もともと直接記載してあった下記のコードを削除しておきましょう。
+CSSを読み込むためにindex.phpの head 内に直接記載してあった下記のコードは不要なので削除しておきましょう。
 ~~~
 <!-- [ Load CSS ] -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/wck_style.css" rel="stylesheet">
+<link href="css/lesson_style.css" rel="stylesheet">
 <!-- [ /Load CSS ] -->
 ~~~
 
-#### 補足 : なぜ head に直書きでなく enqueue を使うのか？
+
+#### なぜ head に直書きでなく wp_enqueue_style() を使うのか？
+
+
+テーマディレクトリまでの階層は <code><?php echo get_template_directory_uri();?></code>で取得できるので head 内に下記のような記述をしがちです。
+
 
 ##### 非推奨の記述例
-
 ~~~
 <link rel='stylesheet' href='<?php echo get_template_directory_uri();?>/css/style.css' type='text/css' media='all' />
 ~~~
 
-##### 正しい順番で読み込む
+この記述だと正しい階層を辿ってCSSファイルを読み込む事は出来ますが、WordPressでは wp_enqueue_style() 関数を使って読み込む事が推奨されています。
+
+##### wp_enqueue_style を理解する
+
+<img src="images/fig_wp_enqueue.png" alt="" style="width:100%;" />
+
+
+##### 1.正しい順番で読み込む
 
 いろいろなjsやcssファイルを読み込む時、正しい順番で読み込まないと正常に動作しない事があります。  
 例えばjQueryのプログラムがその代表で、元となるjQueryのファイルの後で読み込まなくては正しく動作しません。  
@@ -146,9 +157,17 @@ add_action( 'wp_enqueue_scripts', 'lesson_theme_scripts' );
 
 <?php wp_enqueue_style( ハンドル名, 参照先, 依存するハンドル名, バージョン, メディア ); ?>
 
-##### プラグインなど外部から操作出来るようになる
+##### 2.（補足）プラグインなど外部から操作出来るようになる
 
 テーマで読み込まれているjsファイルやcssファイルを外部のプラグインなどから解除したい時に wp_deregister_script() や wp_deregister_style() を使えば、テーマを改変する事なく読み込みを解除する事ができるようになります。
+
+~~~
+// スタイルシートの読み込みを解除するサンプル
+add_action( 'wp_print_styles', 'lesson_deregister_styles', 100 );
+function lesson_deregister_styles() {
+    wp_deregister_style('lesson_css');
+}
+~~~
 
 参考 : [関数リファレンス/wp enqueue style](https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/wp_enqueue_style)
 
@@ -171,7 +190,7 @@ function lesson_theme_scripts(){
 
   // 静的HTMLで読み込んでいたCSSを読み込む
   wp_enqueue_style( 'lesson_css_bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.6' );
-  wp_enqueue_style( 'lesson_css', get_template_directory_uri() . '/css/wck_style.css', array('lesson_css_bootstrap'), '1.0' );
+  wp_enqueue_style( 'lesson_css', get_template_directory_uri() . '/css/lesson_style.css', array('lesson_css_bootstrap'), '1.0' );
 
   // テーマディレクトリ直下にある style.css を出力
   wp_enqueue_style( 'lesson_theme_style', get_stylesheet_uri(), array( 'lesson_css' ),'20160710' );
