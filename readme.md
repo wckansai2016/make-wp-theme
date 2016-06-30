@@ -247,19 +247,19 @@ titleタグに出力される文言は非常に重要なので、自分の思う
 ## ヘッダーのタイトル／リンク／キャッチフレーズを設定
 
 ■サイト名を表示  
-<?php echo get_bloginfo( 'name' ); ?>
+<?php bloginfo( 'name' ); ?>
 
 ■サイトURLを表示  
 <?php echo home_url( '/' ); ?>
 
 ■ヘッダー上部にディスクリプションを設定  
-<?php echo get_bloginfo( 'description' ); ?>
+<?php bloginfo( 'description' ); ?>
 
 下記のように変更してください。
 
 ~~~
-<h1 class="wck_head_logo"><a href="<?php echo home_url( '/' ); ?>"><?php echo get_bloginfo( 'name' ); ?></a></h1>
-<h2 class="wck_head_description"><?php echo get_bloginfo( 'description' ); ?></h2>
+<h1 class="wck_head_logo"><a href="<?php echo home_url( '/' ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+<h2 class="wck_head_description"><?php bloginfo( 'description' ); ?></h2>
 ~~~
 
 ## 投稿のループの作成
