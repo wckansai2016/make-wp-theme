@@ -1,0 +1,39 @@
+@charset "UTF-8";
+body { font-family: "Avenir Next", Verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", "メイリオ", Meiryo, Osaka, sans-serif; background-color: #fcfcfc; }
+
+.screen-reader-text { display: none; }
+
+.wck_head { padding-top: 20px; z-index: 1000; position: relative; }
+
+.wck_head_logo { margin: 0 0 10px; }
+
+.wck_head_description { margin: 0 0 20px; font-size: 14px; }
+
+@media (min-width: 768px) { .wck_nav { z-index: 1000; }
+  .wck_nav a:hover { text-decoration: none; }
+  .wck_nav li { position: relative; }
+  .wck_nav li ul { display: none; position: absolute; top: 45px; }
+  .wck_nav li:hover > ul { width: 300px; display: block; overflow: hidden; margin: 0; padding: 0; background-color: #222; list-style: none; }
+  .wck_nav li:hover > ul li { margin: 0; }
+  .wck_nav li:hover > ul li a { display: block; overflow: hidden; color: #ccc; padding: 10px 15px; }
+  .wck_nav li:hover > ul li a:hover { background-color: #333; } }
+#main { z-index: 0; position: relative; }
+
+.wck_breadcrumb .glyphicon { margin-right: 7px; }
+
+.wck_top_visual img { width: 100%; }
+
+.wck_section { display: block; overflow: hidden; padding: 25px; margin-bottom: 20px; border: 1px solid #cfcfcf; border-radius: 5px; background-color: #fff; }
+.wck_section header { margin: 0 0 20px; }
+.wck_section header h1 { margin: 0 0 10px; font-size: 28px; }
+
+.wck_sub_section .wck_sub_section_title { font-size: 16px; background-color: #222; color: #fff; padding: 10px 15px 8px; margin: 0 0 20px; border-radius: 5px; }
+.wck_sub_section ul { padding: 0; }
+.wck_sub_section li { margin: 8px 20px; font-size: 16px; }
+
+.wck_footer .container { padding-top: 20px; padding-bottom: 20px; margin-top: 20px; border-top: 1px solid #cfcfcf; }
+
+/*-------------------------------------------*/
+/* .pager
+/*-------------------------------------------*/
+.navigation.pagination .page-numbers { padding: 10px; border: 1px solid #cfcfcf; border-radius: 5px; margin-right: 5px; background-color: #fff; }
