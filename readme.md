@@ -1,5 +1,8 @@
 # WordPress テーマ制作 ハンズオン
 
+## 講師
+[石川 栄和](http://lightning.vektor-inc.co.jp/ja/)　/　[西川 伸一](http://nskw-style.com/)　/　[鳥山 優子](http://www.sysbird.jp/)　/　[キタジマタカシ](http://2inc.org/)　/　[Mignon Style](http://mignonstyle.com/)
+
 ## はじめに
 
 この手順・サンプルソースはWordPressのテーマを作った事がないノンプログラマーの人を対象に、  
