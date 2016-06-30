@@ -15,8 +15,8 @@
  <div class="container">
  <div class="row">
  <div class="col-md-12">
- <h1 class="wck_head_logo"><a href="<?php echo home_url( '/' ); ?>"><?php echo get_bloginfo( 'name' ); ?></a></h1>
- <h2 class="wck_head_description"><?php echo get_bloginfo( 'description' ); ?></h2>
+ <h1 class="wck_head_logo"><a href="<?php echo home_url( '/' ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+ <h2 class="wck_head_description"><?php bloginfo( 'description' ); ?></h2>
  </div>
   </div>
        <div class="navbar navbar-inverse">
@@ -98,18 +98,28 @@
 
       <!-- [ #sub ] -->
       <div id="sub" class="col-md-4">
+
+      <?php 
+      // ウィジェットエリアid 'sidebar-widget-area' にウィジェットアイテムが何かセットされていた時
+      if ( is_active_sidebar( 'sidebar-widget-area' ) ) 
+        // sidebar-widget-area に入っているウィジェットアイテムを表示する
+        dynamic_sidebar( 'sidebar-widget-area' );
+      ?>
+
       <aside class="wck_sub_section wck_section"">
       <h4 class="wck_sub_section_title">カテゴリー</h4>
       <ul>
       <?php wp_list_categories('title_li='); ?>
       </ul>
       </aside>
+
       <aside class="wck_sub_section wck_section">
       <h4 class="wck_sub_section_title">月別</h4>
       <ul>
       <?php wp_get_archives('type=monthly'); ?>
       </ul>
       </aside>
+
       </div>
       <!-- [ /#sub ] -->
 
