@@ -547,7 +547,7 @@ if ( is_single() ) で投稿の詳細ページの場合のみ実行するとい�
 
 他にも様々な条件分岐タグがあるので、調べてみてください。
 
-[条件分岐タグ - WordPress Codex 日本語版](https://wpdocs.osdn.jp/%E6%9D%A1%E4%BB%B6%E5%88%86%E5%B2%90%E3%82%BF%E3%82%B0)
+参考 : [条件分岐タグ - WordPress Codex 日本語版](https://wpdocs.osdn.jp/%E6%9D%A1%E4%BB%B6%E5%88%86%E5%B2%90%E3%82%BF%E3%82%B0)
 
 ### (補足) パンくずリストのプラグイン
 
@@ -642,7 +642,7 @@ else を使って下記のように条件分岐を追加します。
 
 テンプレートファイルには沢山の種類がありますので、Codexを参考に必要に応じて利用してください。
 
-[テンプレート階層 - WordPress Codex 日本語版](https://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E9%9A%8E%E5%B1%A4)
+参考 : [テンプレート階層 - WordPress Codex 日本語版](https://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E9%9A%8E%E5%B1%A4)
 
 
 ## もっと詳しく知りたい方は・・・
