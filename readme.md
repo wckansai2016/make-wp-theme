@@ -1,7 +1,7 @@
 # WordPress テーマ制作 ハンズオン
 
-## 講師
-[石川 栄和](http://lightning.vektor-inc.co.jp/ja/)　/　[西川 伸一](http://nskw-style.com/)　/　[鳥山 優子](http://www.sysbird.jp/)　/　[キタジマタカシ](http://2inc.org/)　/　[Mignon Style](http://mignonstyle.com/)
+## 世話役
+[石川 栄和](https://profiles.wordpress.org/kurudrive/)　/　[西川 伸一](https://profiles.wordpress.org/shinichin/)　/　[鳥山 優子](https://profiles.wordpress.org/sysbird/)　/　[キタジマタカシ](https://profiles.wordpress.org/inc2734/)　/　[Mignon Style](https://profiles.wordpress.org/mignonstyle/)
 
 ## はじめに
 
