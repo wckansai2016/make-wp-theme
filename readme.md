@@ -148,8 +148,6 @@ CSSを読み込むためにindex.phpの head 内に直接記載してあった�
 
 ##### wp_enqueue_style を理解する
 
-<img src="images/fig_wp_enqueue.png" alt="" style="width:100%;" />
-
 
 ##### 1.正しい順番で読み込む
 
@@ -159,6 +157,8 @@ CSSを読み込むためにindex.phpの head 内に直接記載してあった�
 そこで、読み込むファイルが別のどのファイルに依存しているかを指定する事によって、WordPressが適切な順番で出力してくれます。  
 
 <?php wp_enqueue_style( ハンドル名, 参照先, 依存するハンドル名, バージョン, メディア ); ?>
+
+<img src="images/fig_wp_enqueue.png" alt="" style="width:100%;" />
 
 ##### 2.（補足）プラグインなど外部から操作出来るようになる
 
