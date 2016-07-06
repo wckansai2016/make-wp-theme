@@ -598,6 +598,16 @@ else を使って下記のように条件分岐を追加します。
 
 今回のテーマは限られた時間の中で出来そうな事に留めていますので、もっと興味がある人はいろいろ調べてみてください。
 
+* [テンプレートタグ - WordPress Codex 日本語版](http://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0)
+* [Code Reference(英語)](https://developer.wordpress.org/reference/)
+
+よくわからなければ、やりたい事のキーワードでまずは検索してみてください。きっといろいろな発見があると思います。
+
+また、WordPressの勉強会は全国各地で開催されていますので、ぜひ足を運んでみてください。
+
+* [WordBench](http://wordbench.org/)
+* [グループ案内 | WordBench](http://wordbench.org/groups/)
+
 Thank you.
 
 
