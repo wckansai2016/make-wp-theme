@@ -323,6 +323,25 @@ article の中の投稿のタイトル名などを下記を参考に書き換え
 ■ 記事の本文  
 <?php the_content(); ?>
 
+上記書き換えると１件分は下記のようなコードになります
+~~~
+<article class="wck_section">
+  <header class="page-header">
+    <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+    <div class="wck_post_meta">
+    <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <?php the_date(); ?>　 
+    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php the_author(); ?>　 
+    <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> <?php the_category(','); ?>
+    </div>
+  </header>
+  <div>
+  <!-- [ 記事の本文 ] -->
+  <?php the_content(); ?>
+  <!-- [ /記事の本文 ] -->
+  </div>
+</article>
+~~~
+
 これでWordPressの管理画面で投稿されている内容が反映されるのが確認できます。
 
 ## ページングの設定

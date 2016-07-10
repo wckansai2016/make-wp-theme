@@ -81,7 +81,9 @@
             </div>
           </header>
           <div>
+          <!-- [ 記事の本文 ] -->
           <?php the_content(); ?>
+          <!-- [ /記事の本文 ] -->
           </div>
         </article>
 
