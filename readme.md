@@ -10,6 +10,11 @@ WordPressのテーマ制作で最低限抑えておきたいポイントを短�
 
 ## ディレクトリの準備
 
+### ファイルのダウンロード
+
+下記のURLからハンズオン用のデータをダウンロードしてください。
+
+<span style="font-size:28px;">https://github.com/wckansai2016/make-wp-theme
 
 1. wck-lesson-static フォルダを複製してフォルダ名を wck-lesson に変更
 1. wck-lessonディレクトリを /wp-content/themes/ ディレクトリにアップ
