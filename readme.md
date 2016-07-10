@@ -254,6 +254,8 @@ titleタグに出力される文言は非常に重要なので、自分の思う
 
 ## ヘッダーのタイトル／リンク／キャッチフレーズを設定
 
+<img src="images/fig_header.png" alt="" style="width:100%;" />
+
 ■サイト名を表示  
 <?php bloginfo( 'name' ); ?>
 
