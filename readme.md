@@ -176,9 +176,12 @@ function lesson_deregister_styles() {
 参考 : [関数リファレンス/wp enqueue style](https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/wp_enqueue_style)
 
 
-### jsファイルの出力
+### javascriptファイルの出力
 
-CSSが正しく適用されたら次はjsファイルを読み込みます。
+CSSが正しく適用されたら次はjavascriptファイルを読み込みます。  
+
+画面サイズを小さくすると、メニューがたたまれてハンバーガーメニューになりますが、javascriptが正しく読み込まれてないので、ハンバーガーメニューをクリックしてもメニューが展開されないので、これを修正します。
+
 先ほどの lesson_theme_scripts() 関数の中に下記を追記します。
 
 ~~~
@@ -209,10 +212,10 @@ add_action( 'wp_enqueue_scripts', 'lesson_theme_scripts' );
 これで wp_footer()経由でjsファイルが出力されるので、bodyの閉じタグの直前に記載してある下記のコードは削除します。
 
 ~~~
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- [ Load JS ] -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
+<!-- [ / Load JS ] -->
 ~~~
 
 これでjavascriptも正しく動作しているのが確認出来るはずです。
