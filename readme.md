@@ -260,7 +260,7 @@ titleタグに出力される文言は非常に重要なので、自分の思う
 <?php bloginfo( 'name' ); ?>
 
 ■サイトURLを表示  
-<?php echo home_url( '/' ); ?>
+<?php echo esc_url( home_url( '/' ) ); ?>
 
 ■ヘッダー上部にディスクリプションを設定  
 <?php bloginfo( 'description' ); ?>
@@ -268,7 +268,7 @@ titleタグに出力される文言は非常に重要なので、自分の思う
 下記のように変更してください。
 
 ~~~
-<h1 class="wck_head_logo"><a href="<?php echo home_url( '/' ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+<h1 class="wck_head_logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
 <h2 class="wck_head_description"><?php bloginfo( 'description' ); ?></h2>
 ~~~
 
@@ -518,7 +518,7 @@ wp_nav_menu( $args ) ;
 
 トップの画像の下にあるパンくずリストについて、ページによって表示内容が変わるように設定していきましょう。
 
-まずは HOME のリンク先を <?php echo home_url( '/' ); ?> に変更します
+まずは HOME のリンク先を <?php echo esc_url( home_url( '/' ) ); ?> に変更します
 
 ### 詳細ページでのみ表示する条件分岐
 
@@ -542,7 +542,7 @@ if ( is_single() ) で投稿の詳細ページの場合のみ実行するとい�
 
 ~~~
 <ol class="breadcrumb">
-  <li><a href="<?php echo home_url( '/' ); ?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>HOME</a></li>
+  <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>HOME</a></li>
   <?php if ( is_single() ) { ?>
   <li><?php the_category(','); ?></li>
   <li><?php the_title();?></li>
